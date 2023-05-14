@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:40:09 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/04/26 14:37:25 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/05/14 14:25:27 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*get_next_line(int fd)
 {
 	static char	*buffer;
 	char		*line;
-	
+
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
 	buffer = get_whole_file(fd, buffer);
@@ -67,15 +67,9 @@ char	*get_one_line(char *buffer)
 	line = (char *)malloc(sizeof(char) * i + 1);
 	if (!line)
 		return (NULL);
-	i = 0;
-	while (buffer[i] && buffer[i] != '\n')
-	{
-		line[i] = buffer[i];
-		i++;
-	}
-	if (buffer[i] == '\n')
-		line[i++] = '\n';
 	line[i] = '\0';
+	while (i--)
+		line[i] = buffer[i];
 	return (line);
 }
 
@@ -83,7 +77,6 @@ char	*new_buffer_storage(char *buffer)
 {
 	int		i;
 	int		j;
-	size_t	buffer_len;
 	char	*new_buffer;
 
 	i = 0;
@@ -96,8 +89,9 @@ char	*new_buffer_storage(char *buffer)
 		free(buffer);
 		return (NULL);
 	}
-	buffer_len = ft_strlen(buffer);
-	new_buffer = (char *)malloc(sizeof(char) * (buffer_len - i++) + 1);
+	if (buffer[i] == '\n')
+		i++;
+	new_buffer = (char *)malloc(sizeof(char) * (ft_strlen(buffer) - i) + 1);
 	if (!new_buffer)
 		return (NULL);
 	j = 0;

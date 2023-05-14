@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:40:06 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/04/25 14:46:24 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/05/14 14:23:29 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlen(char *s)
 {
 	size_t	i;
-	
+
 	if (!s)
 		return (0);
 	i = 0;
