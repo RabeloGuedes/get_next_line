@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 12:02:51 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/04/20 17:42:42 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/07/28 14:57:28 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,7 @@ int	main(int ac, char **av)
 		}
 		str = get_next_line(fd);
 		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
-		str = get_next_line(fd);
-		printf("line: %s", str);
+		free(str);
 		if (close(fd) == -1)
 		{
 			printf("close() failed\n");
